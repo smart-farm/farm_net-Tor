@@ -1,0 +1,10 @@
+<div class="loading">
+    <div class="center">
+        <img src="assets/images/Facebook-1s-200px.gif">
+        <h3 class="TextLoading">Loading...</h3>
+    </div>
+</div>
+<app-navbar></app-navbar>
+<app-map-route></app-map-route>
+<router-outlet (activate)="onGetComponent($event)"></router-outlet>
+<app-footer></app-footer>

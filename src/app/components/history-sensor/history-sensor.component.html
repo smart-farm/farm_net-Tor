@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body shadow">
+        <h2 class="text-center">ประวัติเซ็นเซอร์</h2>
+      <hr>
+      <!--  <div class="row">
+          <div class="col-md-12">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>อุณหภูมิ</th>
+                  <th>ความชื้น</th>
+                  <th>ความเเรงลม</th>
+                  <th>เเสงเเดด</th>
+                  <th>สภาพอากาศ</th>
+                  <th>วันเวลา</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let datas of data">
+                  <td>{{datas.temp}}</td>
+                  <td>{{datas.moisture}}</td>
+                  <td>{{datas.temp}}</td>
+                  <td>{{datas.uv}}</td>
+                  <td>{{datas.raining}}</td>
+                  <td>{{datas.create_dt | date: 'dd/MM/yyyy h:mm:ss'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div> -->
+        <hr>
+         <div class="row">
+          <div class="col-md-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ชื่อเซ็นเซอร์</th>
+                  <th>ประเภทเซ็นเซอร์</th>
+                  <th>ประวัติเซ็นเซอร์</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="MySensor">
+                <tr *ngFor="let data of MySensor">
+                  <td>{{data.sensor_name}}</td>
+                  <td>{{SensorTypeData[data.sensor_type_id]}}</td>
+                  <td class="text-center">
+                    <a class="btn btn-default btn-xs" (click)="OnOpenModal(data.sensor_type_id,data.Id)">
+                      <i class="fas fa-plus"></i> เพิ่มข้อมูลเซ็นเซอร์</a>
+                    <a class="btn btn-info btn-xs" (click)="GetDataSensorById(data.sensor_type_id,data.Id)">
+                      <i class="fas fa-history"></i> ประวัติเซ็นเซอร์</a>
+                    <a class="btn btn-warning btn-xs" data-toggle="modal" (click)="IdEdit = data.Id ; this.FromEditSensor.controls['sensor_name'].setValue( data.sensor_name );"
+                      data-target="#EditSensorModal">
+                      <i class="fas fa-edit"></i> เเก้ไข</a>
+                    <a class="btn btn-danger btn-xs" (click)="OnRemove(data.Id)">
+                      <i class="fas fa-trash-alt"></i> ลบ</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
